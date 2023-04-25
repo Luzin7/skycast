@@ -1,18 +1,75 @@
+import { useContext, useState } from 'react';
 import { getCurrentWeatherByGeolocation } from '../services/currentWeather';
+import { UserGeolocationContext } from '../contexts/userGeolocationContext';
 
-export default function getUserGeolocation() {
-	const lastFetch = localStorage.getItem('lastFetch');
+const GEOLOCATION_OPTIONS = {
+	enableHighAccuracy: true,
+	timeout: 10000,
+	maximumAge: 0,
+};
+
+export default function fetchUserGeolocationAndWeatherData({
+	onFetchError,
+	geolocationOptions = GEOLOCATION_OPTIONS,
+	geolocationCacheKey = 'GEOLOCATION_CACHE_KEY',
+	lastFetchCacheKey = 'LAST_FETCH_CACHE_KEY',
+	fetchInterval = 1800000,
+} = {}) {
+	const { setUserGeolocationInfo } = useContext(UserGeolocationContext);
+	const cachedData = JSON.parse(localStorage.getItem(geolocationCacheKey));
+	const [isFetching, setIsFetching] = useState(false);
+
+	const fetchGeolocationAndWeatherData = () => {
+		setIsFetching(true);
+		navigator.geolocation.getCurrentPosition(
+			({ coords }) => {
+				const { latitude: lat, longitude: lon } = coords;
+
+				getCurrentWeatherByGeolocation(lat, lon)
+					.then(
+						({
+							name,
+							main: { temp },
+							sys: { country },
+							weather: [{ icon }],
+						}) => {
+							setUserGeolocationInfo({
+								name,
+								temp,
+								country,
+								icon: `https://openweathermap.org/img/wn/${icon}@2x.png`,
+							});
+							localStorage.setItem(
+								geolocationCacheKey,
+								JSON.stringify({
+									name,
+									temp,
+									country,
+									icon: `https://openweathermap.org/img/wn/${icon}@2x.png`,
+								}),
+							);
+							setIsFetching(false);
+						},
+					)
+					.catch((err) => {
+						onFetchError?.(err);
+						setIsFetching(false);
+					});
+			},
+			(err) => {
+				onFetchError?.(err);
+				setIsFetching(false);
+			},
+			geolocationOptions,
+		);
+	};
+
+	const lastFetchTime = parseInt(localStorage.getItem(lastFetchCacheKey), 10);
 	const currentTime = new Date().getTime();
 
-	function getCurrentUserPosition(position) {
-		const userCurrentLat = position.coords.latitude;
-		const userCurrentLon = position.coords.longitude;
-		getCurrentWeatherByGeolocation(userCurrentLat, userCurrentLon);
-	}
-	if (!lastFetch || currentTime - lastFetch > 1800000) {
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(getCurrentUserPosition);
-		}
-		localStorage.setItem('lastFetch', currentTime);
+	if (!cachedData || currentTime - lastFetchTime > fetchInterval) {
+		if (isFetching) return;
+		fetchGeolocationAndWeatherData();
+		localStorage.setItem(lastFetchCacheKey, currentTime);
 	}
 }

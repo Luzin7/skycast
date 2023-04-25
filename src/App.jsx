@@ -1,20 +1,13 @@
-import React, { useState } from 'react';
-import { getCurrentWeatherByQuery } from './services/currentWeather';
+import React from 'react';
 import Header from './components/Header';
+import { UserGeolocationProvider } from './contexts/userGeolocationContext';
 
 function App() {
-	const [s, setS] = useState('');
 	return (
 		<>
-			<Header />
-			<input
-				type="text"
-				value={s}
-				onChange={({ target }) => setS(target.value)}
-			/>
-			<button type="button" onClick={() => getCurrentWeatherByQuery(s)}>
-				Chama
-			</button>
+			<UserGeolocationProvider>
+				<Header />
+			</UserGeolocationProvider>
 		</>
 	);
 }
