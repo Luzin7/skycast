@@ -2,24 +2,13 @@ import axios from 'axios';
 import API_KEY from '../../env';
 
 const getCurrentWeatherByGeolocation = (lat, lon) => {
-	try {
-		axios
-			.get(
-				`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`,
-			)
-			.then((res) => {
-				const { name } = res.data;
-				const { temp } = res.data.main;
-				const { icon } = res.data.weather[0];
+	const fetchData = axios
+		.get(
+			`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`,
+		)
+		.then((res) => res.data);
 
-				localStorage.setItem(
-					'CACHE_USER_GEO_INFO',
-					JSON.stringify({ name, temp, icon }),
-				);
-			});
-	} catch (error) {
-		console.log(error.message);
-	}
+	return fetchData;
 };
 
 const getCurrentWeatherByQuery = (city) => {
@@ -28,9 +17,9 @@ const getCurrentWeatherByQuery = (city) => {
 			.get(
 				`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=pt_br`,
 			)
-			.then((res) => console.log(res.data));
+			.then((res) => res.data);
 	} catch (error) {
-		console.log(error.message);
+		throw new Error(`Error : ${error.message}`);
 	}
 };
 
