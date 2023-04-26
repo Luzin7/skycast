@@ -6,7 +6,7 @@ export const UserGeolocationContext = createContext();
 export const UserGeolocationProvider = ({ children }) => {
 	const cachedData = JSON.parse(localStorage.getItem('GEOLOCATION_CACHE_KEY'));
 	const [userGeolocationInfo, setUserGeolocationInfo] = useState(
-		cachedData || {},
+		cachedData || null,
 	);
 
 	return (
