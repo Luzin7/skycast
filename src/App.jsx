@@ -1,12 +1,15 @@
 import React from 'react';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import { UserGeolocationProvider } from './contexts/userGeolocationContext';
+import { UserQueryProvider } from './contexts/userQueryContext';
 
 function App() {
 	return (
 		<>
 			<UserGeolocationProvider>
-				<Header />
+				<UserQueryProvider>
+					<Header />
+				</UserQueryProvider>
 			</UserGeolocationProvider>
 		</>
 	);
