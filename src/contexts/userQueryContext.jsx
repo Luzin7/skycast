@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 export const UserQueryContext = createContext();
 
 export const UserQueryProvider = ({ children }) => {
-	const [userQuery, setUserQuery] = useState('');
+	const [userQuery, setUserQuery] = useState(null);
 
 	return (
 		<UserQueryContext.Provider value={{ userQuery, setUserQuery }}>
