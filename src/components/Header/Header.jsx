@@ -3,17 +3,38 @@ import React, { useContext, useState, useRef, useEffect } from 'react';
 import fetchUserGeolocationAndWeatherData from '../../scripts/getUserGeolocation';
 import { UserGeolocationContext } from '../../contexts/userGeolocationContext';
 import { getCurrentWeatherByQuery } from '../../services/currentWeather';
+import getForecastWeather from '../../services/forecastWeather';
 import { UserQueryContext } from '../../contexts/userQueryContext';
 // import getCurrentYear from '../scripts/getDate';
 
 export default function Header() {
 	const { userGeolocationInfo } = useContext(UserGeolocationContext);
-	const { setUserQuery } = useContext(UserQueryContext);
+	const { setUserQuery, setForecastWeather } = useContext(UserQueryContext);
 	const [searchInput, setSearchInput] = useState('');
 	const delayToFetch = useRef(null);
 
 	const handleSearchInput = (value) => {
 		setSearchInput(value);
+	};
+
+	const getForecastWeatherByPosition = (listArr, position) => {
+		return position.map((pos) => {
+			const {
+				dt_txt,
+				main: { temp_max, temp_min },
+				weather: [{ description, icon }],
+				wind: { speed },
+			} = listArr[pos];
+
+			return {
+				dt_txt,
+				temp_max,
+				temp_min,
+				description,
+				icon: `https://openweathermap.org/img/wn/${icon}@2x.png`,
+				speed,
+			};
+		});
 	};
 
 	useEffect(() => {
@@ -24,7 +45,7 @@ export default function Header() {
 				getCurrentWeatherByQuery(searchInput).then(
 					({
 						weather: [{ description, icon }],
-						main: { temp, feels_like, temp_min, temp_max, humidity },
+						main: { temp, feels_like, humidity },
 						visibility,
 						wind: { speed },
 						sys: { country },
@@ -36,8 +57,6 @@ export default function Header() {
 							description,
 							icon: `https://openweathermap.org/img/wn/${icon}@2x.png`,
 							temp,
-							temp_max,
-							temp_min,
 							feels_like,
 							humidity,
 							visibility,
@@ -45,6 +64,21 @@ export default function Header() {
 						});
 					},
 				);
+				getForecastWeather(searchInput).then(({ city: { name }, list }) => {
+					const hourlyForecast = getForecastWeatherByPosition(list, [0]);
+					const forecastForTomorrow = getForecastWeatherByPosition(list, [7]);
+
+					setForecastWeather({
+						hourlyForecast: {
+							name,
+							...hourlyForecast[0],
+						},
+						nextDayForecast: {
+							name,
+							...forecastForTomorrow[0],
+						},
+					});
+				});
 			}, 1000);
 
 			return () => clearInterval(delayToFetch.current);

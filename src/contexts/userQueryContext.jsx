@@ -5,9 +5,12 @@ export const UserQueryContext = createContext();
 
 export const UserQueryProvider = ({ children }) => {
 	const [userQuery, setUserQuery] = useState(null);
+	const [forecastWeather, setForecastWeather] = useState(null);
 
 	return (
-		<UserQueryContext.Provider value={{ userQuery, setUserQuery }}>
+		<UserQueryContext.Provider
+			value={{ userQuery, setUserQuery, forecastWeather, setForecastWeather }}
+		>
 			{children}
 		</UserQueryContext.Provider>
 	);
