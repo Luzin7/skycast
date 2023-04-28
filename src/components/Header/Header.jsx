@@ -34,7 +34,7 @@ export default function Header() {
 							name,
 							country,
 							description,
-							icon,
+							icon: `https://openweathermap.org/img/wn/${icon}@2x.png`,
 							temp,
 							temp_max,
 							temp_min,
