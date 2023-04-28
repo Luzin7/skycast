@@ -27,8 +27,6 @@ export default function WeatherInfo() {
 				description,
 				icon,
 				temp,
-				temp_max,
-				temp_min,
 				feels_like,
 				humidity,
 				visibility,
