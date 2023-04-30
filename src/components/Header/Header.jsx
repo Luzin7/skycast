@@ -5,7 +5,7 @@ import { UserGeolocationContext } from '../../contexts/userGeolocationContext';
 import { getCurrentWeatherByQuery } from '../../services/currentWeather';
 import getForecastWeather from '../../services/forecastWeather';
 import { UserQueryContext } from '../../contexts/userQueryContext';
-// import getCurrentYear from '../scripts/getDate';
+import './header.css';
 
 export default function Header() {
 	const { userGeolocationInfo } = useContext(UserGeolocationContext);
@@ -93,7 +93,9 @@ export default function Header() {
 			return (
 				<>
 					<img src={icon} alt="icon" />
-					<span>{`${name}, ${country} / ${temp.toFixed(0)}°C`}</span>
+					<span className={`${name}_info`}>
+						{`${name}, ${country} / ${temp.toFixed(0)}°C`}
+					</span>
 				</>
 			);
 		}
@@ -107,29 +109,20 @@ export default function Header() {
 
 	fetchUserGeolocationAndWeatherData();
 	return (
-		<header>
-			<h1>SkyCast</h1>
-			<input
-				type="text"
-				placeholder="Busce por uma cidade..."
-				value={searchInput}
-				onChange={({ target }) => handleSearchInput(target.value)}
-			/>
-			<div className="current_location_info">
-				{showCurrentLocationWeatherInfo()}
+		<header className="header">
+			<div className="header_content">
+				<h1 className="header_title">SkyCast</h1>
+				<input
+					className="input_search"
+					type="text"
+					placeholder="Busce por uma cidade..."
+					value={searchInput}
+					onChange={({ target }) => handleSearchInput(target.value)}
+				/>
+				<div className="current_location_info">
+					{showCurrentLocationWeatherInfo()}
+				</div>
 			</div>
-			{/* <div className="about">
-				<span>
-					&copy; {getCurrentYear()} -{' '}
-					<a
-						href="https://lvictor-portfolio.vercel.app/"
-						target="_blank"
-						rel="noreferrer"
-					>
-						Luan Victor
-					</a>
-				</span>
-			</div> */}
 		</header>
 	);
 }

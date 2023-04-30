@@ -12,7 +12,7 @@ export default function HourlyForecastWeather() {
 			const { name, temp_max, temp_min, description, icon } =
 				forecastWeather.hourlyForecast;
 			return (
-				<div className="weather_info_box">
+				<div className="weather_info_bo">
 					<h2 className="current_weather_city">Dentro de 3 horas em {name}</h2>
 					<div className="current_city_weather">
 						<span className="current_weather_temperature">

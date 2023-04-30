@@ -16,7 +16,6 @@ function App() {
 				<main>
 					<WeatherInfo />
 					<section className="forecasts">
-						<h1>Previsões para [CIDADE]</h1>
 						<HourlyForecastWeather />
 						<NextDayForecastWeather />
 					</section>

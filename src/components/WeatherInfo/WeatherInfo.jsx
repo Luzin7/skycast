@@ -13,6 +13,7 @@ import {
 	BsEye,
 } from 'react-icons/bs';
 import { UserQueryContext } from '../../contexts/userQueryContext';
+import './weatherInfo.scss';
 
 export default function WeatherInfo() {
 	const { userQuery } = useContext(UserQueryContext);
