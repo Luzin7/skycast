@@ -1,0 +1,51 @@
+.hourly_weather_info_box {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+.hourly_weather_info_box .current_weather_city {
+  font-size: 2em;
+  border-bottom: 1px solid #828a91;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.forecast_weather {
+  font-size: 2.5em;
+  text-align: center;
+  font-weight: 500;
+  margin: 0.5em 0;
+}
+
+.current_city_forecast_weather {
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.current_city_forecast_weather .forecast_weather_temperature {
+  font-size: 1.5em;
+}
+
+.forecast_weather_conditions {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.forecast_weather_conditions .forecast_weather_condition {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+.forecast_weather_conditions .forecast_weather_condition img {
+  filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.5));
+}
+.forecast_weather_conditions .forecast_weather_condition .current_weather_condition_desc {
+  font-size: 1.5em;
+}
+.forecast_weather_conditions span {
+  font-size: 1.5em;
+}/*# sourceMappingURL=hourlyForecastWeather.css.map */
