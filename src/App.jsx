@@ -17,8 +17,10 @@ function App() {
 					<div className="main_container">
 						<WeatherInfo />
 						<section className="forecasts">
-							<HourlyForecastWeather />
-							<NextDayForecastWeather />
+							<div className="section_container">
+								<HourlyForecastWeather />
+								<NextDayForecastWeather />
+							</div>
 						</section>
 					</div>
 				</main>
