@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import React, { useContext, useState, useRef, useEffect } from 'react';
+import { VscColorMode } from 'react-icons/vsc';
 import fetchUserGeolocationAndWeatherData from '../../scripts/getUserGeolocation';
 import { UserGeolocationContext } from '../../contexts/userGeolocationContext';
 import { getCurrentWeatherByQuery } from '../../services/currentWeather';
@@ -122,6 +123,7 @@ export default function Header() {
 				<div className="current_location_info">
 					{showCurrentLocationWeatherInfo()}
 				</div>
+				{/* <VscColorMode /> */}
 			</div>
 		</header>
 	);

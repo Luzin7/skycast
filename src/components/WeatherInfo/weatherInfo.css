@@ -1,0 +1,98 @@
+.container {
+  background-color: #f9f9fa;
+  height: 80vh;
+  width: 25vw;
+  border-radius: 25px;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.weather_info_box {
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+}
+
+.current_weather_city {
+  color: #666d72;
+  font-size: 2.5em;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.5em;
+}
+
+.current_city_weather {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  color: #3c4043;
+}
+.current_city_weather .current_weather_icon {
+  margin-right: 20px;
+}
+.current_city_weather .current_weather_icon .sun_icon {
+  color: #3c4043;
+  font-size: 3.5em;
+}
+.current_city_weather .current_weather_temperature {
+  font-size: 7em;
+  font-weight: 700;
+}
+
+.current_weather_conditions {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  color: #3c4043;
+  border-bottom: 1px solid #828a91;
+}
+.current_weather_conditions .current_weather_condition,
+.current_weather_conditions .current_weather_sensation {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  width: 50%;
+}
+.current_weather_conditions .current_weather_condition .condition_icon,
+.current_weather_conditions .current_weather_sensation .condition_icon {
+  width: auto;
+  height: 50px;
+  filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.5));
+}
+.current_weather_conditions .current_weather_condition .sensation_icon,
+.current_weather_conditions .current_weather_sensation .sensation_icon {
+  width: 50px;
+  font-size: 1.5em;
+}
+
+.current_weather_extras {
+  display: flex;
+  flex-flow: column wrap;
+  width: 80%;
+  margin: 0 auto;
+}
+.current_weather_extras li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+  font-size: 1.5em;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+.current_weather_extras li:last-child {
+  margin-bottom: 0px;
+}
+.current_weather_extras li .li_title {
+  color: #666d72;
+}
+.current_weather_extras li .li_content {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  color: #3c4043;
+}/*# sourceMappingURL=weatherInfo.css.map */
