@@ -1,0 +1,22 @@
+@import "../../styles/variables";
+
+$footer-color: $light-mode-bgcolor-footer;
+
+.footer_container {
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	justify-content: center;
+	height: 5vh;
+	background-color: rgba($footer-color, 0.8);
+	color: $light-mode-text-color-high-emphasis2;
+
+	& p,
+	span {
+		font-size: 0.7em;
+	}
+
+	& span {
+		font-weight: $light;
+	}
+}
