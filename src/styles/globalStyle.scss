@@ -13,6 +13,10 @@ body {
 	transition: background 0.7s;
 }
 
+a {
+	color: $light-mode-text-color-link;
+}
+
 .warm {
 	background: $light-mode-bgcolor-warm;
 }
@@ -31,10 +35,11 @@ body {
 .main_container {
 	display: flex;
 	flex-flow: row wrap;
-	padding: 2em 0;
 	width: 90%;
 	margin: 0 auto;
 	justify-content: space-evenly;
+	align-items: center;
+	height: 85vh;
 
 	& .section_container {
 		background-color: $light-mode-bgcolor-secondary;
