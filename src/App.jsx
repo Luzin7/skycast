@@ -14,11 +14,13 @@ function App() {
 					<Header />
 				</UserGeolocationProvider>
 				<main>
-					<WeatherInfo />
-					<section className="forecasts">
-						<HourlyForecastWeather />
-						<NextDayForecastWeather />
-					</section>
+					<div className="main_container">
+						<WeatherInfo />
+						<section className="forecasts">
+							<HourlyForecastWeather />
+							<NextDayForecastWeather />
+						</section>
+					</div>
 				</main>
 			</UserQueryProvider>
 		</>
