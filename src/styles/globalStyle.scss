@@ -10,22 +10,39 @@
 
 body {
 	background: $light-mode-bgcolor-primary;
+	transition: background 0.7s;
 }
 
 .warm {
 	background: $light-mode-bgcolor-warm;
-	transition: background 0.7s;
 }
 
 .cold {
-	transition: background 0.7s;
 	background: $light-mode-bgcolor-cold;
 }
 
+.icon_warm {
+	color: $light-mode-bgcolor-warm;
+}
+.icon_cold {
+	color: $light-mode-bgcolor-primary;
+}
+
 .main_container {
-	// display: flex;
-	// flex-flow: row wrap;
+	display: flex;
+	flex-flow: row wrap;
 	padding: 2em 0;
-	width: 80%;
+	width: 90%;
 	margin: 0 auto;
+	justify-content: space-evenly;
+
+	& .section_container {
+		background-color: $light-mode-bgcolor-secondary;
+		height: 80vh;
+		width: 50vw;
+		border-radius: 25px;
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: space-evenly;
+	}
 }
