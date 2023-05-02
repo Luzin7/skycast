@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import WeatherInfo from './components/WeatherInfo/WeatherInfo';
 import HourlyForecastWeather from './components/HourlyForecastWeather/HourlyForecastWeather';
 import NextDayForecastWeather from './components/NextDayForecastWeather/NextDayForecastWeather';
+import Footer from './components/Footer/Footer';
 import { UserGeolocationProvider } from './contexts/userGeolocationContext';
 import { UserQueryProvider } from './contexts/userQueryContext';
 
@@ -24,6 +25,7 @@ function App() {
 						</section>
 					</div>
 				</main>
+				<Footer />
 			</UserQueryProvider>
 		</>
 	);
