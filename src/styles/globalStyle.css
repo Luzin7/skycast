@@ -7,20 +7,39 @@
 
 body {
   background: #7db9e7;
+  transition: background 0.7s;
 }
 
 .warm {
   background: #ec9ea5;
-  transition: background 0.7s;
 }
 
 .cold {
-  transition: background 0.7s;
   background: #cce4f5;
 }
 
+.icon_warm {
+  color: #ec9ea5;
+}
+
+.icon_cold {
+  color: #7db9e7;
+}
+
 .main_container {
+  display: flex;
+  flex-flow: row wrap;
   padding: 2em 0;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
+  justify-content: space-evenly;
+}
+.main_container .section_container {
+  background-color: #f9f9fa;
+  height: 80vh;
+  width: 50vw;
+  border-radius: 25px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
 }/*# sourceMappingURL=globalStyle.css.map */
