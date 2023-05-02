@@ -6,6 +6,21 @@
 }
 
 body {
-  color: #3c4043;
   background: #7db9e7;
+}
+
+.warm {
+  background: #ec9ea5;
+  transition: background 0.7s;
+}
+
+.cold {
+  transition: background 0.7s;
+  background: #cce4f5;
+}
+
+.main_container {
+  padding: 2em 0;
+  width: 80%;
+  margin: 0 auto;
 }/*# sourceMappingURL=globalStyle.css.map */
