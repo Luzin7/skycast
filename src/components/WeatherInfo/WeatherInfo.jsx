@@ -33,6 +33,7 @@ export default function WeatherInfo() {
 				visibility,
 				speed,
 			} = userQuery;
+
 			const foo = document.querySelector('body');
 
 			const warm = 'warm';
@@ -50,13 +51,13 @@ export default function WeatherInfo() {
 
 			const dropIcon = () => {
 				if (humidity >= 70) {
-					return <BsDropletFill />;
+					return <BsDropletFill className="icon_cold" />;
 				}
 				if (humidity >= 30 && humidity < 70) {
-					return <BsDropletHalf />;
+					return <BsDropletHalf className="icon_cold" />;
 				}
 				if (humidity < 30) {
-					return <BsDroplet />;
+					return <BsDroplet className="icon_warm" />;
 				}
 
 				return null;
@@ -77,10 +78,10 @@ export default function WeatherInfo() {
 
 			const thermometerIcon = () => {
 				if (feels_like > temp) {
-					return <BsThermometerHalf className="sensation_icon" />;
+					return <BsThermometerHalf className="sensation_icon icon_warm" />;
 				}
 				if (feels_like < temp) {
-					return <BsThermometerLow className="sensation_icon" />;
+					return <BsThermometerLow className="sensation_icon icon_cold" />;
 				}
 
 				return null;
