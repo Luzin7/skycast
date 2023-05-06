@@ -6,6 +6,9 @@
   display: flex;
   flex-flow: column wrap;
 }
+body.dark-mode .container {
+  background-color: #606e79;
+}
 
 .weather_info_box {
   height: 100%;
@@ -21,6 +24,9 @@
   font-weight: 500;
   line-height: 1.5em;
 }
+body.dark-mode .current_weather_city {
+  color: #bfc5c9;
+}
 
 .current_city_weather {
   display: flex;
@@ -29,12 +35,18 @@
   justify-content: center;
   color: #3c4043;
 }
+body.dark-mode .current_city_weather {
+  color: #f9f9fa;
+}
 .current_city_weather .current_weather_icon {
   margin-right: 20px;
 }
 .current_city_weather .current_weather_icon .sun_icon {
   color: #3c4043;
   font-size: 3.5em;
+}
+body.dark-mode .current_city_weather .current_weather_icon .sun_icon {
+  color: #f9f9fa;
 }
 .current_city_weather .current_weather_temperature {
   font-size: 7em;
@@ -50,6 +62,10 @@
   color: #3c4043;
   border-bottom: 1px solid #828a91;
 }
+body.dark-mode .current_weather_conditions {
+  color: #f9f9fa;
+  border-bottom: 1px solid #7f8b93;
+}
 .current_weather_conditions .current_weather_condition,
 .current_weather_conditions .current_weather_sensation {
   display: flex;
@@ -62,6 +78,10 @@
   width: auto;
   height: 50px;
   filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.5));
+}
+body.dark-mode .current_weather_conditions .current_weather_condition .condition_icon,
+body.dark-mode .current_weather_conditions .current_weather_sensation .condition_icon {
+  filter: none;
 }
 .current_weather_conditions .current_weather_condition .sensation_icon,
 .current_weather_conditions .current_weather_sensation .sensation_icon {
@@ -90,9 +110,15 @@
 .current_weather_extras li .li_title {
   color: #666d72;
 }
+body.dark-mode .current_weather_extras li .li_title {
+  color: #bfc5c9;
+}
 .current_weather_extras li .li_content {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   color: #3c4043;
+}
+body.dark-mode .current_weather_extras li .li_content {
+  color: #f9f9fa;
 }/*# sourceMappingURL=weatherInfo.css.map */
