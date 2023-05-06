@@ -10,6 +10,9 @@
   width: 80%;
   margin: 0 auto;
 }
+body.dark-mode .hourly_weather_info_box .current_weather_city {
+  border-bottom: 1px solid #7f8b93;
+}
 
 .forecast_weather {
   font-size: 2.5em;
@@ -17,12 +20,18 @@
   font-weight: 500;
   margin: 0.5em 0;
 }
+body.dark-mode .forecast_weather {
+  color: #f9f9fa;
+}
 
 .current_city_forecast_weather {
   display: flex;
   justify-content: space-evenly;
   flex-flow: row wrap;
   align-items: center;
+}
+body.dark-mode .current_city_forecast_weather {
+  color: #f9f9fa;
 }
 .current_city_forecast_weather .forecast_weather_temperature {
   font-size: 1.5em;
@@ -34,6 +43,9 @@
   justify-content: space-around;
   align-items: center;
 }
+body.dark-mode .forecast_weather_conditions {
+  color: #f9f9fa;
+}
 .forecast_weather_conditions .forecast_weather_condition {
   display: flex;
   flex-flow: row wrap;
@@ -42,6 +54,9 @@
 }
 .forecast_weather_conditions .forecast_weather_condition img {
   filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.5));
+}
+body.dark-mode .forecast_weather_conditions .forecast_weather_condition img {
+  filter: none;
 }
 .forecast_weather_conditions .forecast_weather_condition .current_weather_condition_desc {
   font-size: 1.5em;
