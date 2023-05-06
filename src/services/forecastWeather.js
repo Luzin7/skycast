@@ -1,5 +1,5 @@
 import axios from 'axios';
-import API_KEY from '../../env';
+import API_KEY from '../utils/apiKey';
 
 const getForecastWeather = (city) => {
 	const fetchForecastData = axios
