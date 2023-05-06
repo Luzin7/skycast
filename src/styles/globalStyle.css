@@ -7,7 +7,10 @@
 
 body {
   background: #7db9e7;
-  transition: background 0.7s;
+  transition: background-color 0.7s;
+}
+body.dark-mode {
+  background: #374047;
 }
 
 a {
@@ -17,9 +20,15 @@ a {
 .warm {
   background: #ec9ea5;
 }
+.warm.dark-mode {
+  background: #473737;
+}
 
 .cold {
   background: #cce4f5;
+}
+.cold.dark-mode {
+  background: #394d5c;
 }
 
 .icon_warm {
@@ -39,6 +48,13 @@ a {
   align-items: center;
   height: 85vh;
 }
+.main_container .start_result {
+  width: 100%;
+  height: 100%;
+  background: url(../assets/img/season_change.svg) no-repeat;
+  background-size: contain;
+  background-position: center;
+}
 .main_container .section_container {
   background-color: #f9f9fa;
   height: 80vh;
@@ -47,4 +63,25 @@ a {
   display: flex;
   flex-flow: column wrap;
   justify-content: space-evenly;
+}
+body.dark-mode .main_container .section_container {
+  background-color: #606e79;
+}
+.main_container .section_container .loading {
+  animation: loading 1s ease-in-out infinite;
+  margin: 0 auto;
+  width: 25%;
+  height: 25%;
+}
+body.dark-mode .main_container .section_container .loading {
+  color: #606e79;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=globalStyle.css.map */
