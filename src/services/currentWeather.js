@@ -12,17 +12,13 @@ const getCurrentWeatherByGeolocation = (lat, lon) => {
 };
 
 const getCurrentWeatherByQuery = (city) => {
-	try {
-		const fechData = axios
-			.get(
-				`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=pt_br`,
-			)
-			.then((res) => res.data);
-
-		return fechData;
-	} catch (error) {
-		throw new Error(`Error : ${error.message}`);
-	}
+	return axios
+		.get(
+			`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=pt_br`,
+		)
+		.then((response) => {
+			return response.data;
+		});
 };
 
 export { getCurrentWeatherByQuery, getCurrentWeatherByGeolocation };
