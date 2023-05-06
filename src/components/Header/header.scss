@@ -76,3 +76,42 @@ $header-color: black;
 		cursor: pointer;
 	}
 }
+
+@media screen and (max-width: 768px) {
+	.header {
+		min-height: 10vh;
+		background-color: rgba($header-color, 0.25);
+	}
+
+	.header_content {
+		& .header_title {
+			font-size: 1.5em;
+		}
+
+		& .current_location_info {
+			display: none;
+		}
+
+		& .input_search {
+			max-width: 50vw;
+			height: 40px;
+			border-radius: 25px;
+			border: none;
+			outline: none;
+			padding: 7px;
+			font-size: 1em;
+			background-color: $light-mode-bgcolor-input;
+		}
+
+		.toggleTheme {
+			body.dark-mode & {
+				color: $dark-mode-text-color-high-emphasis;
+
+				&:hover {
+					color: $light-mode-bgcolor-primary;
+				}
+			}
+			font-size: 3.1em;
+		}
+	}
+}

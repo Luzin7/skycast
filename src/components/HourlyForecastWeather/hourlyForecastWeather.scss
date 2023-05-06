@@ -70,3 +70,134 @@
 		font-size: 1.5em;
 	}
 }
+
+@media screen and (max-width: 768px) {
+	.hourly_weather_info_box {
+		display: flex;
+		flex-flow: column;
+		justify-content: space-evenly;
+		height: 100%;
+		& .current_weather_city {
+			body.dark-mode & {
+				border-bottom: 1px solid $dark-mode-text-color-low-emphasis;
+			}
+			font-size: 2em;
+			border-bottom: 1px solid $light-mode-text-color-low-emphasis;
+			width: 80%;
+			margin: 0 auto;
+		}
+	}
+
+	.forecast_weather {
+		font-size: 2.5em;
+		text-align: center;
+		font-weight: $medium;
+		margin: 0.5em 0;
+	}
+
+	.current_city_forecast_weather {
+		body.dark-mode & {
+			color: $dark-mode-text-color-high-emphasis;
+		}
+		display: flex;
+		justify-content: space-evenly;
+		flex-flow: row wrap;
+		align-items: center;
+
+		& .forecast_weather_temperature {
+			font-size: 1.4em;
+		}
+	}
+
+	.forecast_weather_conditions {
+		body.dark-mode & {
+			color: $dark-mode-text-color-high-emphasis;
+		}
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		align-items: center;
+
+		& .forecast_weather_condition {
+			display: flex;
+			flex-flow: row wrap;
+			align-items: center;
+			justify-content: center;
+
+			& img {
+				body.dark-mode & {
+					filter: none;
+				}
+				filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.5));
+				width: auto;
+				height: 2.5em;
+			}
+
+			& .current_weather_condition_desc {
+				font-size: 1em;
+			}
+		}
+		& span {
+			font-size: 1em;
+		}
+	}
+}
+
+@media screen and (min-width: 769px) and (max-width: 1056px) {
+	.hourly_weather_info_box {
+		display: flex;
+		flex-flow: column;
+		justify-content: space-evenly;
+		height: 100%;
+		& .current_weather_city {
+			body.dark-mode & {
+				border-bottom: 1px solid $dark-mode-text-color-low-emphasis;
+			}
+			font-size: 2em;
+			border-bottom: 1px solid $light-mode-text-color-low-emphasis;
+			width: 80%;
+			margin: 0 auto;
+		}
+	}
+
+	.forecast_weather {
+		font-size: 2.5em;
+		text-align: center;
+		font-weight: $medium;
+		margin: 0.5em 0;
+	}
+
+	.current_city_forecast_weather {
+		body.dark-mode & {
+			color: $dark-mode-text-color-high-emphasis;
+		}
+		display: flex;
+		justify-content: space-evenly;
+		flex-flow: row wrap;
+		align-items: center;
+
+		& .forecast_weather_temperature {
+			font-size: 1.4em;
+		}
+	}
+
+	.forecast_weather_conditions {
+		& .forecast_weather_condition {
+			& img {
+				body.dark-mode & {
+					filter: none;
+				}
+				filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.5));
+				width: auto;
+				height: 2.5em;
+			}
+
+			& .current_weather_condition_desc {
+				font-size: 1.2em;
+			}
+		}
+		& span {
+			font-size: 1.2em;
+		}
+	}
+}

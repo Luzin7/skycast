@@ -132,3 +132,101 @@
 		}
 	}
 }
+
+@media screen and (max-width: 768px) {
+	.container {
+		height: 80vh;
+		min-width: 90vw;
+	}
+
+	.current_weather_city {
+		font-size: 2em;
+	}
+
+	.current_city_weather {
+		& .current_weather_icon {
+			& .sun_icon {
+				font-size: 2.5em;
+			}
+		}
+		& .current_weather_temperature {
+			font-size: 5em;
+		}
+	}
+
+	.current_weather_conditions {
+		width: 80%;
+		margin: 0 auto;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-evenly;
+		color: $light-mode-text-color-high-emphasis;
+		border-bottom: 1px solid $light-mode-text-color-low-emphasis;
+
+		& .current_weather_condition,
+		.current_weather_sensation {
+			flex-flow: row;
+		}
+	}
+
+	.current_weather_extras {
+		& li {
+			font-size: 1.25em;
+			margin-bottom: 15px;
+		}
+	}
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+	.current_weather_city {
+		font-size: 2.5em;
+	}
+
+	.current_city_weather {
+		& .current_weather_icon {
+			& .sun_icon {
+				font-size: 3.5em;
+			}
+		}
+		& .current_weather_temperature {
+			font-size: 7em;
+		}
+	}
+
+	.current_weather_extras {
+		& li {
+			font-size: 1.5em;
+			margin-bottom: 25px;
+		}
+	}
+}
+
+@media screen and (min-width: 769px) and (max-width: 1056px) {
+	.current_weather_conditions {
+		& .current_weather_condition,
+		.current_weather_sensation {
+			flex-flow: row wrap;
+		}
+	}
+	.current_weather_city {
+		font-size: 2.5vw;
+	}
+
+	.current_city_weather {
+		& .current_weather_icon {
+			& .sun_icon {
+				font-size: 5vw;
+			}
+		}
+		& .current_weather_temperature {
+			font-size: 10vw;
+		}
+	}
+
+	.current_weather_extras {
+		& li {
+			font-size: 1em;
+			margin-bottom: 15px;
+		}
+	}
+}

@@ -10,7 +10,7 @@ $footer-color: $light-mode-bgcolor-footer;
 	flex-flow: column wrap;
 	align-items: center;
 	justify-content: center;
-	height: 5vh;
+	min-height: 5vh;
 	background-color: rgba($footer-color, 0.8);
 	color: $light-mode-text-color-high-emphasis2;
 
