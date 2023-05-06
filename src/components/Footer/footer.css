@@ -7,6 +7,9 @@
   background-color: rgba(44, 66, 82, 0.8);
   color: #f9f9fa;
 }
+body.dark-mode .footer_container {
+  background-color: rgba(44, 66, 82, 0.4);
+}
 .footer_container p,
 .footer_container span {
   font-size: 0.7em;
