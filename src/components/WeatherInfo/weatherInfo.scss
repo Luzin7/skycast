@@ -1,6 +1,9 @@
 @import "../../styles/variables";
 
 .container {
+	body.dark-mode & {
+		background-color: $dark-mode-bgcolor-secondary;
+	}
 	background-color: $light-mode-bgcolor-secondary;
 	height: 80vh;
 	width: 25vw;
@@ -17,6 +20,9 @@
 }
 
 .current_weather_city {
+	body.dark-mode & {
+		color: $dark-mode-text-color-medium-emphasis;
+	}
 	color: $light-mode-text-color-medium-emphasis;
 	font-size: 2.5em;
 	text-align: center;
@@ -25,6 +31,9 @@
 }
 
 .current_city_weather {
+	body.dark-mode & {
+		color: $dark-mode-text-color-high-emphasis;
+	}
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
@@ -35,6 +44,9 @@
 		margin-right: 20px;
 
 		& .sun_icon {
+			body.dark-mode & {
+				color: $dark-mode-text-color-high-emphasis;
+			}
 			color: $light-mode-text-color-high-emphasis;
 			font-size: 3.5em;
 		}
@@ -47,6 +59,10 @@
 }
 
 .current_weather_conditions {
+	body.dark-mode & {
+		color: $dark-mode-text-color-high-emphasis;
+		border-bottom: 1px solid $dark-mode-text-color-low-emphasis;
+	}
 	width: 80%;
 	margin: 0 auto;
 	display: flex;
@@ -63,6 +79,9 @@
 		width: 50%;
 
 		& .condition_icon {
+			body.dark-mode & {
+				filter: none;
+			}
 			width: auto;
 			height: 50px;
 			filter: drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.5));
@@ -95,10 +114,16 @@
 		}
 
 		& .li_title {
+			body.dark-mode & {
+				color: $dark-mode-text-color-medium-emphasis;
+			}
 			color: $light-mode-text-color-medium-emphasis;
 		}
 
 		& .li_content {
+			body.dark-mode & {
+				color: $dark-mode-text-color-high-emphasis;
+			}
 			display: flex;
 			flex-flow: row wrap;
 			align-items: center;
