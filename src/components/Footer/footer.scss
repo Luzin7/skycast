@@ -3,6 +3,9 @@
 $footer-color: $light-mode-bgcolor-footer;
 
 .footer_container {
+	body.dark-mode & {
+		background-color: rgba($footer-color, 0.4);
+	}
 	display: flex;
 	flex-flow: column wrap;
 	align-items: center;
