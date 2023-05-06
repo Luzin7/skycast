@@ -64,9 +64,6 @@ a {
 			background-color: $dark-mode-bgcolor-secondary;
 		}
 		& .loading {
-			body.dark-mode & {
-				color: $dark-mode-bgcolor-secondary;
-			}
 			animation: loading 1s ease-in-out infinite;
 			margin: 0 auto;
 			width: 25%;
