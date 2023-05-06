@@ -16,6 +16,7 @@
 .header_content .header_title {
   font-size: 2.5em;
   font-weight: 700;
+  cursor: default;
 }
 .header_content .header_title,
 .header_content .current_location_info {
@@ -50,4 +51,20 @@
 .header_content .input_search::placeholder {
   color: #828a91;
   letter-spacing: 0.02em;
+}
+.header_content .toggleTheme {
+  font-size: 2em;
+  color: #3c4043;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+.header_content .toggleTheme:hover {
+  transform: rotate(360deg);
+  color: #606e79;
+}
+body.dark-mode .header_content .toggleTheme {
+  color: #f9f9fa;
+}
+body.dark-mode .header_content .toggleTheme:hover {
+  color: #7db9e7;
 }/*# sourceMappingURL=header.css.map */
