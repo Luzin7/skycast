@@ -1,6 +1,6 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { getCurrentWeatherByGeolocation } from '../services/currentWeather';
-import { UserGeolocationContext } from '../contexts/userGeolocationContext';
+import useUserStore from '../store/user';
 
 const GEOLOCATION_OPTIONS = {
 	enableHighAccuracy: true,
@@ -15,7 +15,7 @@ export default function fetchUserGeolocationAndWeatherData({
 	lastFetchCacheKey = 'LAST_FETCH_CACHE_KEY',
 	fetchInterval = 1800000,
 } = {}) {
-	const { setUserGeolocationInfo } = useContext(UserGeolocationContext);
+	const { actions } = useUserStore();
 	const cachedData = JSON.parse(localStorage.getItem(geolocationCacheKey));
 	const [isFetching, setIsFetching] = useState(false);
 
@@ -33,7 +33,7 @@ export default function fetchUserGeolocationAndWeatherData({
 							sys: { country },
 							weather: [{ icon }],
 						}) => {
-							setUserGeolocationInfo({
+							actions.updateUserGeolocation({
 								name,
 								temp,
 								country,
