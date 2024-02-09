@@ -19,7 +19,7 @@ function App() {
 				{userQuery ? (
 					<div className="main_container">
 						<WeatherInfo />
-						{forecastWeather ? (
+						{/* {forecastWeather ? (
 							<section className="forecasts">
 								<div className="section_container">
 									<HourlyForecastWeather />
@@ -32,7 +32,7 @@ function App() {
 									<AiOutlineLoading className="loading" />
 								</div>
 							</section>
-						)}
+						)} */}
 					</div>
 				) : (
 					<div className="main_container">
